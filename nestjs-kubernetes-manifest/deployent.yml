@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nestjs-app
+  labels:
+    app: nestjs-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nestjs-app
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: nestjs-app
+        type: app
+    spec:
+      containers:
+      - name: nestjs-app
+        image: "rephapeng/datasaur-nestjs:latest"
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 150m
+            memory: 0.25Gi
+          requests:
+            cpu: 100m
+            memory: 0.25Gi
+        ports:
+        - name: http
+          containerPort: 3000
+        readinessProbe:
+          tcpSocket:
+            port: http
+          initialDelaySeconds: 20
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+          initialDelaySeconds: 30
+          periodSeconds: 10

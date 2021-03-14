@@ -1,0 +1,13 @@
+rbac:
+  create: true
+
+cloudProvider: aws
+awsRegion: ap-southeast-2
+
+autoDiscovery:
+  clusterName: datasaurus
+  enabled: true
+
+image:
+  repository: us.gcr.io/k8s-artifacts-prod/autoscaling/cluster-autoscaler
+  tag: v1.16.5

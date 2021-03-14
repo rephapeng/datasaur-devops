@@ -1,0 +1,7 @@
+#create key-pair
+module "key_pair" {
+    source = "terraform-aws-modules/key-pair/aws"
+
+    key_name   = var.cluster_name
+    public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDm26X3VDh+/IjwI1hAp+6YKuPzEOYClttrMloozxc+YDLCzOF1ayNrh9SHM2c37Pjf6aXqu2Jl0pLhS8I2eNUDTPXbEzM7mATLqHCFLFqVv1conXjbicq/4zZmKuOScYa1pMA50lkYbwiSqP2tdh6Zdjcp/OLLdiRabgPZE00PE6mOCVOkJ4x6TkWbrC2yKlXzOQAEh8r5sSuYmCbzB/6xMy04EoG9hjSL0Fq6yNm7Zhky061765SPRiiRkKXXJcmDAV3o0hMgSyQmFBqQKWeHyx7Lr2Pj5MrRMHAgWOUrUvVLqWS74Pgf3YA8Kf8YhClLS2IcA55gt/1hWdHUJlBP1QHuQlG79rEdcqRMuYafcx4ovm8WcA4+rAFOBTWO/PV6YNKdCDhBcrNrvdX57gM25A7TSPWtWWZxw9wNQ81FrLi9wlLe4ZrQR1+yommZ7xkNy0YIRW+3pWEWbfWUbTdIR5Rh8EczHyL7J1l2f4gtSin9l1EYsa9blT4jF+Ur8yU= datasaur"
+}

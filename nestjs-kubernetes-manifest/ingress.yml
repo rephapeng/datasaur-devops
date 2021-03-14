@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nestjs-app
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: "letsencrypt-dinosaurus"
+spec:
+  tls:
+  - hosts:
+    - dinosaurus.pawonmburi.com
+    secretName: dinosaurus-tls2
+  rules:
+  - host: dinosaurus.pawonmburi.com
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: nestjs-app
+            servicePort: 80
