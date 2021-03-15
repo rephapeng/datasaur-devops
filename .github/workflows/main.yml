@@ -56,5 +56,4 @@ jobs:
           cluster_name: $EKS_CLUSTER_NAME
         with:
           args: |
-            kubectl set image deployment/$K8S_DEPLOYMENT $K8S_DEPLOYMENT=$DOCKER_IMAGE:$DOCKER_TAG -n $K8S_NAMESPACE
-            kubectl rollout status deployment/$K8S_DEPLOYMENT -n $K8S_NAMESPACE
+            kubectl set image deployment/$K8S_DEPLOYMENT $K8S_DEPLOYMENT=$DOCKER_IMAGE:$DOCKER_TAG -n $K8S_NAMESPACE && kubectl rollout status deployment/$K8S_DEPLOYMENT -n $K8S_NAMESPACE
