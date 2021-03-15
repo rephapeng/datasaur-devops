@@ -1,7 +1,9 @@
 name: nestjs-app-workflow
 on:
   push:
-    branches: [ nestjs-app ]
+    branches: [ master ]
+    paths:
+      - 'nestjs-app/*'
   pull_request:
     branches: [ master ]
 
