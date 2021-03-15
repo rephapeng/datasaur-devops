@@ -35,3 +35,4 @@ we use github workflow for CI/CD. github workflow wavaliable on
 nestjs-app/.github/workflow/rollout.yml'
 ```
 for utilize that we can sparate the nestjs-app on specific single repository 
+github workflow file also available on .github/workflow/main.yml
