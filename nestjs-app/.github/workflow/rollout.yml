@@ -38,6 +38,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
+          file: nestjs-app/Dockerfile
           context: .
           push: true
           tags: rephapeng/datasaur-nestjs:latest
