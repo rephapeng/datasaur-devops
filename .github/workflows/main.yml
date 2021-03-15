@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
     paths:
-      - 'nestjs-app/*'
+      - 'nestjs-app/**'
   pull_request:
     branches: [ master ]
 
