@@ -16,7 +16,7 @@ env:
   EKS_CLUSTER_NAME: datasaurus
 
 jobs:
-  docker:
+  rollout-deploy:
     runs-on: ubuntu-latest
     steps:
       -
@@ -42,13 +42,8 @@ jobs:
           context: nestjs-app/
           push: true
           tags: rephapeng/datasaur-nestjs:latest
-  
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Deploy
+      - 
+        name: Deploy
         uses: cancue/eks-action@v0.0.2
         env:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -58,3 +53,4 @@ jobs:
         with:
           args: |
             kubectl set image deployment/$K8S_DEPLOYMENT $K8S_DEPLOYMENT=$DOCKER_IMAGE:$DOCKER_TAG -n $K8S_NAMESPACE && kubectl rollout status deployment/$K8S_DEPLOYMENT -n $K8S_NAMESPACE
+
