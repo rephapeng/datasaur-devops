@@ -1,4 +1,4 @@
-# Datasaur-devops
+# Nestjs apps with EKS cluster
 ## Setup the infrastructure
 we need to setup kubernetes cluster on EKS using terraform, infrastructure consist of EKS cluster, VPC, route53 role, OIDC-role and autoscaler-role.
 ```sh
